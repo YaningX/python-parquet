@@ -49,12 +49,15 @@ namespace parquet {
                 return file_reader->num_row_groups();
             }
 
-            parquet::schema::GroupNode *schema_root() {
-                return static_cast<parquet::schema::GroupNode *>(file_reader->descr()->schema().get());
+            const parquet::schema::NodePtr& schema_root() {
+                return file_reader->descr()->schema();
             }
 
             T* read_next();
 
+            void close() {
+                file_reader->Close();
+            }
         };
     }
 }

@@ -6,7 +6,11 @@
 #include "cstdint"
 
 #include "../include/RecordConverter.h"
+#include "thrift/transport/TBufferTransports.h"
+#include "parquet/api/schema.h"
+
 using namespace std;
+
 
 namespace parquet {
 
@@ -56,7 +60,6 @@ namespace parquet {
             }
             return result;
         }
-
 
     }
 }
